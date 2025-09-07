@@ -45,7 +45,7 @@
 <body>
     <a href="{{url_for('index')}}">Home</a>
     <h1>Create Post</h1>
-    <form action="/create" method="post">
+    <form action="{{url_for('create')}}" method="post">
         <label for="name">Title:</label>
         <br>
         <input type="text" name="title" id="name" required>
