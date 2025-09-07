@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        textarea, input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{url_for('index')}}">Home</a>
+    <h1>Edit Post</h1>
+    <form action="{{url_for('edit', post_id=post.id)}}" method="post">
+        <label for="name">Title:</label>
+        <br>
+        <input type="text" name="title" id="name" value="{{post.title}}" required>
+        <br>
+        <label for="content">Content:</label>
+        <br>
+        <textarea name="content" id="content" required>{{post.content}}</textarea>
+        <br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
